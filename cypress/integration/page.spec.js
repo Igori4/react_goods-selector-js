@@ -76,6 +76,11 @@ describe('Page', () => {
         .should('not.exist');
     });
 
+    it('should have an AddButton for each not selected goods', () => {
+      cy.byDataCy('AddButton')
+        .should('have.length', 9);
+    });
+
     it('should have correct styles for AddButton', () => {
       cy.get('[data-cy="AddButton"].is-info').should('not.exist');
       cy.contains('[data-cy="AddButton"]', '-').should('not.exist');
